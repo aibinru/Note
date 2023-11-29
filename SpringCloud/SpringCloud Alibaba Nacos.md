@@ -72,9 +72,9 @@ public class ShoppingCouponApplication {
 
 注册完后启动nacos，可以在服务列表看到
 
-![image-20231128213626617](C:\Users\13870\AppData\Roaming\Typora\typora-user-images\image-20231128213626617.png)
+![image-20231128213626617](https://github.com/aibinru/Note/blob/main/images/SpringCloud/image-20231128213302873.png)
 
-![image-20231128213302873](C:\Users\13870\AppData\Roaming\Typora\typora-user-images\image-20231128213302873.png)
+![image-20231128213302873](https://github.com/aibinru/Note/blob/main/images/SpringCloud/image-20231128213626617.png)
 
 
 
