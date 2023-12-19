@@ -3,6 +3,7 @@ package com.demo03.controller;
 
 import com.demo03.entity.BrandEntity;
 import com.demo03.service.BrandService;
+import com.demo03.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,8 +28,8 @@ public class BrandController {
     }
 
     @RequestMapping("/query")
-    public String hello() {
-        return "query";
+    public R hello() {
+        return R.success("查询成功！");
     }
 
     //保存
