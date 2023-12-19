@@ -1,2 +1,2 @@
 # Note
-把平时用的到文件，学习记录保存到GitHub，方便从任何需要的地方及时获取，方便管理。
+take note in this.
