@@ -18,8 +18,10 @@ public class BrandController {
     BrandService brandService;
 
     @RequestMapping("/info/{brandId}")
-    public BrandEntity queryBrand(@PathVariable("brandId") Long brandId) {
-        return brandService.getById(brandId);
+    public R queryBrand(@PathVariable("brandId") Long brandId) {
+        BrandEntity brandEntity = brandService.getById(brandId);
+
+        return R.success(brandEntity);
     }
 
     @RequestMapping("/querys")
