@@ -65,6 +65,9 @@ public class UpDownSftp {
         for (ChannelSftp.LsEntry file : listFiles) {
             String fileName = file.getFilename();
             System.out.println("fileName:"+fileName);
+            if(fileName.equals("temp.sql")){
+                System.out.println("come on!");
+            }
         }
     }
 
