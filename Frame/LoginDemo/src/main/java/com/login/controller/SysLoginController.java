@@ -13,26 +13,25 @@ import org.springframework.web.bind.annotation.*;
  * @description:
  */
 @RestController
-@RequestMapping
 public class SysLoginController {
 
     @Autowired
     SysUserLoginService sysUserLoginService;
 
-//    /**
-//     * 登录验证
-//     */
-//    @PostMapping("/login")
-//    public R login(@RequestBody LoginBody loginBody) {
-//        R r = R.success();
-//        String token = sysUserLoginService.login(loginBody.getUserName(), loginBody.getPassword(),
-//                loginBody.getCode(), loginBody.getUuid());
-//        r.put(Constants.TOKEN, token);
-//        return r;
-//    }
+    /**
+     * 登录验证
+     */
+    @PostMapping("/login")
+    public R login(@RequestBody LoginBody loginBody) {
+        R r = R.success();
+        String token = sysUserLoginService.login(loginBody.getUserName(), loginBody.getPassword(),
+                loginBody.getCode(), loginBody.getUuid());
+        r.put(Constants.TOKEN, token);
+        return r;
+    }
 
     @GetMapping("/get")
-    public String get(@RequestBody LoginBody loginBody){
+    public String get(){
         System.out.println("get");
         return "get";
     }
