@@ -12,9 +12,10 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     #druid:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/pms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    #url: jdbc:mysql://127.0.0.1:3306/pms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://139.224.248.106:3306/pms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
-    password: abr123
+    password: ywy123abr
     initial-size: 10
     max-active: 100
     min-idle: 10
