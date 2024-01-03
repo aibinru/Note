@@ -1,14 +1,3 @@
-///*
-// * 项目名称:easydao
-// * 类名称:JedisUtil.java
-// * 包名称:cn.zertone.common.utils
-// *
-// * 修改履历:
-// *      日期                修正者      主要内容
-// *      2019/1/22 16:04    李鹏军      初版完成
-// *
-// * Copyright (c) 2019-2019 咨同科技
-// */
 //package com.redis.utils;
 //
 //import com.google.common.collect.Sets;
