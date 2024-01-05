@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.dao.UserDao">
+    <select id="queryByNamess" parameterType="java.lang.String" resultType="com.mybatis.entity.UserEMysqlGeneratorntity">
+        select * from tb_user a where a.name = #{name}
+    </select>
+
+    <!--
+    场景一：
+        查询Employee的同时查询员工对应的部门
+        Employee === Department
+        一个员工有与之对应的部门信息
+ -->
+    <!--
+        联合查询：级联属性封装结果集
+    -->
+    <!--    resultMap：自定义映射，用于自定义某个JavaBean的封装规则，处理复杂的表关系-->
+    <!--    id：用于设置主键的映射关系，定义主键底层会有优化，column 设置字段名（列），property 设置属性名，-->
+    <!--    result：设置非主键的映射关系，定义普通列封装规则，column 设置字段名（列），property 设置属性名-->
+    <resultMap id="MyDifEmp" type="com.njf.mybatis.bean.Employee">
+        <id column="id" property="id"/>
+        <result column="last_name" property="lastName"/>
+        <result column="email" property="email" />
+        <result column="gender" property="gender"/>
+        <result column="did" property="department.id"/>
+        <result column="dept_name" property="department.deptName"/>
+    </resultMap>
+
+    <!--
+        public Employee getEmpAndDept(Integer id);
+     -->
+    <select id="getEmpAndDept" resultMap="MyDifEmp">
+        SELECT e.`id` id,
+               e.`last_name` last_name,
+               e.`gender` gender,
+               e.`dept_id` dept_id,
+               d.`id` did,
+               d.`dept_name` dept_name
+        FROM tbl_employee e, tbl_department d
+        WHERE e.`dept_id`=d.`id` AND e.`id` = #{id}
+    </select>
+
+
+
+    <!--
+        使用 association 定义关联的单个对象的封装规则
+    -->
+    <resultMap id="MyDifEmp2" type="com.njf.mybatis.bean.Employee">
+        <id column="id" property="id"/>
+        <result column="last_name" property="lastName"/>
+        <result column="email" property="email" />
+        <result column="gender" property="gender"/>
+        <!--
+            association：可以指定联合的JavaBean对象
+            property="department"：指定哪个属性是联合的对象
+            javaType：指定这个属性对象的类型【不能省略】
+        -->
+        <association property="department" javaType="com.njf.mybatis.bean.Department">
+            <id column="did" property="id"/>
+            <result column="dept_name" property="deptName"/>
+        </association>
+    </resultMap>
+
+    <!--
+        public Employee getEmpAndDept(Integer id);
+     -->
+    <select id="getEmpAndDept" resultMap="MyDifEmp2">
+        SELECT e.`id` id, e.`last_name` last_name, e.`gender` gender, e.`dept_id` dept_id,
+               d.`id` did, d.`dept_name` dept_name
+        FROM tbl_employee e, tbl_department d
+        WHERE e.`dept_id`=d.`id` AND e.`id` = #{id}
+    </select>
+
+</mapper>

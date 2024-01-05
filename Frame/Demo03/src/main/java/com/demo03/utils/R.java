@@ -72,7 +72,7 @@ public class R extends HashMap<String, Object> {
     }
 
     public static R error(int code,String msg){
-        return new R(code,msg,"");
+        return new R(code,msg);
     }
 
     public static R error(String msg,Object data){
